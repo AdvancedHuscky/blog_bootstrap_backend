@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
-const logger = require('morgan');
+const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 const routes = require('./routes/index');
 
 const app = express();
@@ -12,9 +13,15 @@ const app = express();
 app.set('views',path.join(__dirname,'views'));
 
 //设置模板引擎
+//需要下载ejs module
 app.set('view engine','ejs');
 
-app.use(logger('dev'));
+//将日志信息按照日期来归档
+let nowDate = new Date();
+let fileName = nowDate.getFullYear()+'-'+(nowDate.getMonth()+1)+'-'+nowDate.getDate()+'.log';
+let logStream = fs.createWriteStream(path.join(__dirname,'logs',fileName),{flags:'a'});
+app.use(morgan('tiny',{stream:logStream}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
@@ -43,7 +50,7 @@ app.use(function (err,req,res,next) {
     res.status(err.status || 500);
     res.render('error');
 });
-app.listen(app.get('post'),function(){
+app.listen(3000,function(){
     console.log('express server listening on port:'+3000);
 });
 
