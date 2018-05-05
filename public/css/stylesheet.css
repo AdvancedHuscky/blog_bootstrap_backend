@@ -1,0 +1,261 @@
+.h-top {
+  width: 100%;
+}
+/*--top header start--*/
+.top-header {
+  padding: 0em 2em;
+  background: #5B83AD;
+}
+ul.top-nag {
+  float: left;
+  margin-bottom: 0;
+}
+ul.top-nag li {
+  display: inline-block;
+  margin-left: 0;
+}
+ul.top-nag a {
+  display: inline-block;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 20px;
+  background: #5B83AD;
+}
+ul.top-nag a.active {
+  color: #ffcc00;
+}
+.search-box {
+  float: right;
+  width: 20%;
+  margin-top: 0.3em;
+}
+.b-search {
+  position: relative;
+  height: 2em;
+  border: 1px solid #5B83AD;
+  padding: 0.5em 0;
+  background: #5B83AD;
+  width: 99%;
+}
+.b-search input[type="text"] {
+  width: 85%;
+  height: 3.2em;
+  outline: none;
+  border: none;
+  padding: 0 0.6em;
+  font-size: 0.9em;
+  color: #fff;
+  background: #5078a2;
+}
+.b-search input[type="submit"] {
+  background: url(../images/search.png) no-repeat 0px 2px;
+  border: none;
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  outline: none;
+  top: 1em;
+  right: 0.8em;
+}
+/*--top header end--*/
+/*--left-side nav bar start--*/
+.top-nav {
+  float: left;
+  background-color: #f26649;
+  width: 15%;
+  height: 100%;
+  padding: 3em 1em 1em 1em;
+}
+.top-nav .logo a {
+  display: block;
+}
+.top-nav .logo a h1 {
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: 700;
+  text-align: center;
+}
+.top-nav .logo a h1:hover {
+  text-decoration: none;
+}
+.top-nav .top-menu ul {
+  margin-top: 9em;
+}
+.top-nav .top-menu ul li {
+  display: block;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.top-nav .top-menu ul li a {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1em;
+}
+.top-nav .top-menu ul.side-icons {
+  border: none;
+}
+.top-nav .top-menu ul.side-icons li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: .8em;
+}
+.top-nav .top-menu ul.side-icons li i {
+  font-size: 2em;
+}
+.top-nav .top-menu ul.side-icons li i:hover {
+  cursor: pointer;
+  color: #dddddd;
+}
+.cl-effect-16 a {
+  color: #6f8686;
+  text-shadow: 0 0 1px rgba(111, 134, 134, 0.3);
+}
+.cl-effect-16 a::before {
+  color: #ffcc00;
+  content: attr(data-hover);
+  position: absolute;
+  opacity: 0;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  -webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+  -moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+  transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  pointer-events: none;
+}
+.cl-effect-16 a:hover::before,
+.cl-effect-16 a:focus::before {
+  -webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+  -moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+  transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+  opacity: 1;
+}
+/*--left-side nav bar end--*/
+/*--main content start--*/
+.main {
+  float: right;
+  width: 75%;
+  padding: 0;
+}
+.main .banner-section {
+  float: left;
+  padding: 0 1em 1.5em 1em;
+  border-right: none;
+}
+.main .banner-section h3.title {
+  color: #333;
+  font-size: 2em;
+  text-align: left;
+  margin-bottom: .8em;
+}
+.main .banner-section h3.title i {
+  font-size: .7em;
+  color: #f26649;
+}
+.main .banner-section .carousel-indicators-position {
+  bottom: 100% !important;
+  left: 94% !important;
+}
+.main .banner-section .carousel-indicators-position li {
+  width: 1em !important;
+  height: 1em !important;
+  background: #f26649 !important;
+}
+.main .banner-section .carousel-indicators-position .active {
+  width: 1.1em !important;
+  height: 1.1em !important;
+  background: #5B83AD !important;
+}
+.main .banner-section .banner {
+  padding: 0;
+}
+.main .banner-section .banner .b-bottom {
+  margin-top: 1em;
+}
+.main .banner-section .banner .b-bottom p a {
+  margin: 0 .2em;
+}
+.main .banner-section .top-news {
+  padding: 2em 0;
+}
+.main .banner-section .top-news .top-text {
+  padding-left: 0;
+}
+.main .banner-section .top-news .top-text p {
+  font-size: .9em;
+  font-weight: 400;
+  line-height: 1.9em;
+  color: #777;
+}
+.main .banner-section .top-news .top-text p .glyphicon {
+  margin: 0 .2em 0 2em !important;
+}
+.main .banner-section .top-news .two {
+  padding-right: 0;
+  padding-left: 1em;
+}
+.main .banner-right-text {
+  float: right;
+  padding: 0 1em 1.5em 1em;
+}
+.main .banner-right-text .general-news .edit-pics {
+  margin-top: 3em;
+}
+.main .banner-right-text .general-news .edit-pics .editor-pics {
+  padding: 0 !important;
+}
+/*--main content end--*/
+/*--footer start--*/
+.footer {
+  padding: 1em 0 !important;
+}
+.footer .footer-top {
+  background-color: #222;
+}
+.footer .footer-top .footer-grid h4 {
+  color: #fff;
+  font-size: 1.8em;
+}
+.footer .footer-top .footer-grid ul.bottom {
+  margin-top: 1.6em;
+}
+.footer .footer-top .footer-grid ul.bottom li {
+  list-style: none;
+  display: block;
+  margin-bottom: 1em;
+  color: #707073;
+}
+.footer .footer-top .footer-grid ul.bottom li i {
+  margin-right: .4em;
+}
+.footer .footer-top .footer-grid ul.bottom li a {
+  color: #707073;
+  text-decoration: none;
+}
+.footer .footer-top .footer-grid ul.bottom li a:hover {
+  color: #f26649;
+}
+.footer .footer-top .footer-grid ul.bottom li:hover {
+  color: #f26649;
+}
+/*--footer end--*/
+/*--copy start--*/
+.copy {
+  text-align: center;
+  background: #5B83AD;
+  padding: .5em;
+}
+/*--copy end--*/
+h3.tittle {
+  padding: 1em 0 !important;
+  font-size: 2em;
+}
+h3.tittle i {
+  color: #f26649;
+}
