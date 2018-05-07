@@ -30,7 +30,29 @@ module.exports = function (app) {
             console.log('两次密码不一致');
             return res.redirect('/');//返回注册页
         }
-        User
+        User.findOne({'username':user.username},(err,data)=>{
+            if(err){
+                req.flash('err',err);
+                return res.redirect('/');
+            }
+            if(data != null){
+                console.log('该用户已经存在');
+                return res.redirect('/signin'); //返回注册页
+            }else{
+                //保存新用户
+                user.save(function(err){
+                    if(err){
+                        //req.flash('err',err);
+                        console.log(err);
+                        return res.redirect('/');
+                    }
+                    //req.flash('success','注册成功!');
+                    console.log('注册用户成功');
+                    res.redirect('/');//注册成功后返回主页
+
+                })
+            }
+        })
     })
     //文章发布
     app.get('/post',(req,res,next)=>{
