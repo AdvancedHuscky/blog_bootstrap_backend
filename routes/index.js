@@ -19,7 +19,7 @@ module.exports = function (app) {
             title:'注册页面'
         })
     })
-    app.post('signin',(req,res)=>{
+    app.post('/signin',(req,res)=>{
         let user = new User({
             username:req.body.username,
             password:req.body.password,

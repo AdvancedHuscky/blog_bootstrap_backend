@@ -9,4 +9,5 @@ let UserSchema = new mongoose.Schema({
 });
 //这里数据库会创建一个users集合
 let User = mongoose.model('User',UserSchema);
+console.log('connected to mongodb server 27017');
 module.exports = User;
