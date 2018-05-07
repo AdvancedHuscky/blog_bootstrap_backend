@@ -11,4 +11,10 @@ module.exports = function (app) {
             title:'登陆',
         })
     })
+    //注册页面
+    app.get('/signin',(req,res,next)=>{
+        res.render('page_signin',{
+            title:'注册页面'
+        })
+    })
 }
