@@ -13,6 +13,29 @@ module.exports = function (app) {
             title:'登陆',
         })
     })
+    app.post('/login',(req,res)=>{
+        let password = req.body.password;
+        console.log(req.body);
+        //检查用户是否存在
+        User.findOne({'username':req.body.username},(err,user)=>{
+            console.log(user);
+            if(err){
+                console.log('err',err);
+                return res.redirect('/');
+            }
+            if(!user){
+                console.log('error','用户不存在')
+                return res.redirect('/login');
+            }
+            //判断密码输入是否正确
+            if(user.password !== password){
+                console.log('error','密码错误');
+                return res.redirect('/')
+            }
+            console.log(user.username);
+            res.redirect('/');
+        })
+    })
     //注册页面
     app.get('/signin',(req,res,next)=>{
         res.render('page_signin',{
