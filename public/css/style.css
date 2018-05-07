@@ -46,12 +46,16 @@ label{
 /*--responsive--*/
 @media(max-width: 2000px){
     .top-nav{
-        float: left;
+        position: fixed !important;
+        left: 0;
+        top: 4em;
         background-color: #f26649;
         width: 15%;
-        padding:3em 1em 88em 1em;
+        height:100%;
+        padding:8em 1em 1em 1em;
     }
     .main {
+        position: relative;
         float: right;
         width: 75%;
         padding: 0;
@@ -68,12 +72,11 @@ label{
         padding: 1em 1em 1.5em 1em;
     }
     .footer{
+        position: absolute !important;
+        bottom:0;
         margin-left:-1.1em;
         margin-right:-6em !important;
         z-index:600;
-    }
-    .copy{
-        margin-left:-30em;
     }
     .top-nav .top-menu ul.side-icons {
         border: none;
@@ -89,16 +92,28 @@ label{
 }
 @media(max-width: 1600px){
     .top-nav{
-        float: left;
+        position: fixed !important;
+        left: 0;
+        top: 4em;
         background-color: #f26649;
         width: 15%;
-        height:auto;
-        padding:3em 1em 88em 1em;
+        height:100%;
+        padding:8em 1em 1em 1em;
+    }
+    html,body{
+        height: 100%;
+    }
+    .h-top{
+        height:100%;
+    }
+    .full{
+        height:100%;
     }
     .main {
         float: right;
         width: 75%;
         padding: 0;
+        margin-left:25%;
     }
     .banner-section {
         width: 75%;

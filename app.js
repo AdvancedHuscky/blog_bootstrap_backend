@@ -13,6 +13,7 @@ const app = express();
 app.set('views',path.join(__dirname,'views'));
 
 //设置模板引擎
+app.engine('.ejs',require('ejs').renderFile);
 //需要下载ejs module
 app.set('view engine','ejs');
 
