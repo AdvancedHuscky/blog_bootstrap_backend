@@ -33,7 +33,7 @@ app.use('/',require('./routers/main'));
 
 //监听http请求
 //连接mongo数据库
-mongoose.connect('mongodb://localhost:27018/blogMiaov',function (err) {
+mongoose.connect('mongodb://localhost:27017/blogMiaov',function (err) {
     if(err){
         console.log('failed to connect db server');
     }else{
