@@ -4,9 +4,13 @@ const favicon = require('serve-favicon');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const expressSession = require('express-session');
+//创建mongo和session会话机制
+let connectMongo = require('connect-mongo');
 const fs = require('fs');
 const routes = require('./routes/index');
 
+const MongoStore = connectMongo(expressSession);
 const app = express();
 
 //设置模板目录
@@ -54,5 +58,15 @@ app.use(function (err,req,res,next) {
 app.listen(3000,function(){
     console.log('express server listening on port:'+3000);
 });
+
+//session 中间件
+app.use(expressSession({
+    name: Blog,//设置cookie中保存session id 的字段名称
+    secret: Blog,//通过设置secret来计算hash值并放在cookie中，使产生的sinedCookie防篡改
+    cookie: {maxAge:6000},//过期时间，过期后的cookie中的session id 自动删除
+    store:new MongoStore({url:'mongodb://localhost/Blog'}),//将session存储到mongodb中
+    resave:false,
+    saveUninitialized:true
+}))
 
 module.exports = app;
