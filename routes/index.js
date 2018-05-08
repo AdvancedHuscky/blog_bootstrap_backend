@@ -2,6 +2,7 @@ let mongoose = require('mongoose');
 let User = require('./../models/user.model');
 const moment = require('moment'); //时间控件
 const formidable = require('formidable'); //表单控件
+const path = require('path');
 module.exports = function (app) {
     //首页
     app.get('/',function (req,res,next) {
@@ -137,6 +138,16 @@ module.exports = function (app) {
                 postImg,
                 publishTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss').toString(),
                 pv
+            });
+            post.save((err)=>{
+                if(err){
+                    console.log('文章发表出现错误');
+                    req.flash('err','文章发表错误');
+                    return res.redirect('/post');
+                }
+                console.log('文章录入成功');
+                req.flash('success','文章录入成功');
+                res.redirect('/')
             })
         })
     })
