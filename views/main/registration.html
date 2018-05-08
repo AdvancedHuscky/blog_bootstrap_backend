@@ -7,14 +7,14 @@
 <meta name="keywords" content="Blogger Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android  Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="/public/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,700italic,800,300,300italic,400italic,400,600,600italic' rel='stylesheet' type='text/css'>
 <!--Custom-Theme-files-->
-	<link href="css/style.css" rel='stylesheet' type='text/css' />	
-	<script src="js/jquery.min.js"> </script>
+	<link href="/public/css/style.css" rel='stylesheet' type='text/css' />	
+	<script src="/public/js/jquery.min.js"> </script>
 <!--/script-->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="/public/js/move-top.js"></script>
+<script type="text/javascript" src="/public/js/easing.js"></script>
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		
@@ -40,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					    <div class="b-search">
 								<form>
 										<input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-										<input type="submit" value="">
+										<input class="registration-button" type="submit" value="">
 								</form>
 							</div>
 						</div>
@@ -95,31 +95,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="sign-up2">
 							<form>
-								<input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+								<input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" name="username">
 
 							</form>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<div class="sign-u">
-						<div class="sign-up1">
-							<h4 class="b">Last Name* :</h4>
-						</div>
-						<div class="sign-up2">
-							<form>
-									<input type="text" class="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}">
+					<!--<div class="sign-u">-->
+						<!--<div class="sign-up1">-->
+							<!--<h4 class="b">Last Name* :</h4>-->
+						<!--</div>-->
+						<!--<div class="sign-up2">-->
+							<!--<form>-->
+									<!--<input type="text" class="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}">-->
 
-							</form>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
+							<!--</form>-->
+						<!--</div>-->
+						<!--<div class="clearfix"> </div>-->
+					<!--</div>-->
 					<div class="sign-u">
 						<div class="sign-up1">
 							<h4 class="c">Email Address* :</h4>
 						</div>
 						<div class="sign-up2">
 							<form>
-								 <input type="text" class="text" value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}">
+								 <input type="email" class="text" value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}" name="email">
 
 							</form>
 						</div>
@@ -132,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="sign-up2">
 							<form>
-								 <input type="password" class="Password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+								 <input type="password" class="Password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" name="password">
 
 							</form>
 						</div>
@@ -144,16 +144,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="sign-up2">
 							<form>
-								
-											 <input type="password" class="Password" value="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}">
-	
+
+											 <input type="password" class="Password" value="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}" name="repassword">
+
 
 							</form>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 					<form>
-						<input type="submit" value="Submit">
+						<input class="registration-button" type="submit" value="Submit">
 					</form>
 				</div>
 			</div>
@@ -213,6 +213,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</script>
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
-
+	<script src="/public/js/registration.js"></script>
 </body>
 </html>

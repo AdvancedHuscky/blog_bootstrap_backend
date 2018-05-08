@@ -1147,6 +1147,17 @@ p.lom{
 	    font-family: 'Open Sans', sans-serif;
 	    color: #999;
 	}
+.sign-up2 input[type="email"]{
+    outline:none;
+    border:1px solid #333;
+    background:none;
+    font-size:15px;
+    padding:10px 10px;
+    width:100%;
+    margin:1em 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #999;
+}
 .sign-up h5{
 	margin: 0 0 2em;
 	color: #D52500;
@@ -1861,7 +1872,7 @@ ul.bottom i {
 		width: 15%;
 		padding: 3em 1em 21.8em 1em;
 	}
-	.coment-form input[type="text"],.coment-form input[type="email"] {
+	.coment-form input[type="text"],.coment-form input[type="email"],{
 		width: 86%;
 		margin-bottom: 5px;
 		font-size: 13px;
