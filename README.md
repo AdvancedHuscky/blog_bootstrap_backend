@@ -6,3 +6,5 @@ model 存放数据模型Schema Model
 #中间件
 express-session
 connect-mongo
+moment 时间控件
+formidable 表单控件

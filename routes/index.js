@@ -1,5 +1,7 @@
 let mongoose = require('mongoose');
 let User = require('./../models/user.model');
+const moment = require('moment'); //时间控件
+const formidable = require('formidable'); //表单控件
 module.exports = function (app) {
     //首页
     app.get('/',function (req,res,next) {
@@ -89,7 +91,11 @@ module.exports = function (app) {
     //文章发布
     app.get('/post',(req,res,next)=>{
         res.render('page_post',{
-            title:'文章发布'
+            title:'文章发布',
+            user:req.session.user,
         })
+    });
+    app.post('/post',(req,res,next)=>{
+
     })
 }
