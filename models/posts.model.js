@@ -1,2 +1,2 @@
 let mongoose = require('mongoose');
-let config = require('../config/config')
+let config = require('../config/config');
