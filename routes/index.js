@@ -7,7 +7,6 @@ module.exports = function (app) {
     app.get('/',function (req,res,next) {
         res.render('page_index',{
             title:'首页',
-            user:true
         });
     })
     //登陆页面
@@ -92,10 +91,53 @@ module.exports = function (app) {
     app.get('/post',(req,res,next)=>{
         res.render('page_post',{
             title:'文章发布',
-            user:req.session.user,
+            user: true//req.session.user,
         })
     });
     app.post('/post',(req,res,next)=>{
+        let imgPath = path.dirname(__dirname) + '/public/images/pic';
+        let form = new formidable.IncomingForm(); //创建上传表单
+        form.encoding = 'utf-8'; //设置编辑
+        form.uploadDir = imgPath; //设置上传目录
+        form.keepExtensions = true; //保留后缀
+        form.maxFileSize = 2*1024*1024; //文件大小
+        form.type = true;
+        form.parse(req,(err,fields,files)=>{
+            if(err){
+                console.log(err);
+                return
+            }
+            let file = files.postImg; //获取上传文件信息
 
+            if(file.type !== 'image/png' && file.type !== 'image/jpeg' && file.type !== 'image/gif' && file.type !== 'image/jpg'){
+              console.log('上传文件格式错误，请上传图片文件');
+              return res.redirect('/upload')
+            }
+            let title = fields.title;
+            let author = req.session.user.username;
+            let article = fields.article;
+            let postImg = file.path.split(path.sep).pop();
+            let pv = fields.pv;
+            //检验参数
+            try {
+                if (!title.length) {
+                    throw new Error('请填写标题');
+                }
+                if (!article.length){
+                    throw new Error('请填写内容');
+                }
+            }catch(e){
+                req.flash('error',e.message);
+                return res.redirect('back');
+            }
+            let post = new Post({
+                title,
+                author,
+                article,
+                postImg,
+                publishTime:moment(new Date()).format('YYYY-MM-DD HH:mm:ss').toString(),
+                pv
+            })
+        })
     })
 }
