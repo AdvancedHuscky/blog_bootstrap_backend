@@ -5,6 +5,7 @@ module.exports = function (app) {
     app.get('/',function (req,res,next) {
         res.render('page_index',{
             title:'首页',
+            user:true
         });
     })
     //登陆页面
@@ -23,6 +24,7 @@ module.exports = function (app) {
                 console.log('err',err);
                 return res.redirect('/');
             }
+            //用户不存在
             if(!user){
                 console.log('error','用户不存在')
                 return res.redirect('/login');
@@ -32,9 +34,16 @@ module.exports = function (app) {
                 console.log('error','密码错误');
                 return res.redirect('/')
             }
+            //用户名密码都匹配，将用户信息存入session
+            //登陆之后，session存储用户信息并且跳转到首页
+            req.session.user = user;
             console.log(user.username);
             res.redirect('/');
         })
+    });
+    app.get('/logout',function(req,res){
+        req.session.user = null;
+        res.redirect('/');
     })
     //注册页面
     app.get('/signin',(req,res,next)=>{
