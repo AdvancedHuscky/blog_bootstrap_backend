@@ -1,19 +1,49 @@
 let mongoose = require('mongoose');
 let User = require('./../models/user.model');
+let Post = require('../models/posts.model');
 const moment = require('moment'); //时间控件
+const session = require('express-session');
 const formidable = require('formidable'); //表单控件
 const path = require('path');
+
+//检测是否登陆
+function checkLogin(req,res,next){
+    if(!req.session.user){
+        console.log('err','未登陆，请先登陆')
+        return res.redirect('/detail'+id);
+    }
+    next();
+}
+function checkNoLogin(req,res,next){
+    if(req.session.user){
+        console.log('error','已登陆，无需再登陆');
+        return res.redirect('back');
+    }
+    next();
+}
 module.exports = function (app) {
     //首页
     app.get('/',function (req,res,next) {
-        res.render('page_index',{
-            title:'首页',
-        });
-    })
+        Post.find({},(err,data)=>{
+            if(err){
+                //req.flash('err','查找错误');
+                return res.redirec('/');
+            }
+            res.render('page_index',{
+                title:'首页',
+                user:req.session.user,
+                //success:req.flash('success').toString(),
+                //error:req.flash('err').toString(),
+                posts:data,
+                time:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+            });
+        })
+    });
     //登陆页面
     app.get('/login',(req,res,next)=>{
         res.render('page_login',{
             title:'登陆',
+            user:req.session.user,
         })
     })
     app.post('/login',(req,res)=>{
@@ -21,7 +51,8 @@ module.exports = function (app) {
         console.log(req.body);
         //检查用户是否存在
         User.findOne({'username':req.body.username},(err,user)=>{
-            console.log(user);
+            console.log(user+"53");
+            console.log(req.session);
             if(err){
                 console.log('err',err);
                 return res.redirect('/');
@@ -39,7 +70,7 @@ module.exports = function (app) {
             //用户名密码都匹配，将用户信息存入session
             //登陆之后，session存储用户信息并且跳转到首页
             req.session.user = user;
-            console.log(user.username);
+            //console.log(user.username+"71");
             res.redirect('/');
         })
     });
@@ -59,7 +90,7 @@ module.exports = function (app) {
             password:req.body.password,
             email:req.body.email
         });
-        if(req.body['password'] != req.body['password-repeat']){
+        if(req.body['password'] !== req.body['password-repeat']){
             //req.flash('error','两次输入的密码不一致');
             console.log('两次密码不一致');
             return res.redirect('/');//返回注册页
