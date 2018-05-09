@@ -94,16 +94,18 @@
 <!--banner-section end-->
 <!--banner-right-bar start-->
 <div class="banner-right-text">
-    <h3 class="tittle">News  <i class="glyphicon glyphicon-facetime-video"></i></h3>
+    <h3 class="tittle">好文欣赏  <i class="glyphicon glyphicon-facetime-video"></i></h3>
     <!--/general-news-->
     <div class="general-news">
         <div class="general-inner">
+            <% posts.forEach(function(post){%>
             <div class="general-text">
-                <a href="single.html"><img src="images/gen1.jpg" class="img-responsive" alt=""></a>
-                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam eratsed diam justo duo dolores rebum.</p>
-                <p>On Jun 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+                <a href="single.html"><img src="<%= 'images/pic/'+post.postImg %>" class="img-responsive" alt=""></a>
+                <h5 class="top"><a href="single.html"><%= post.title %></a></h5>
+                <p class="general-article"><%- post.article %></p>
+                <p><%= post.publishTime %> <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span><%= post.pv %></a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
             </div>
+            <%})%>
             <div class="edit-pics">
                 <div class="editor-pics">
                     <div class="item-details">

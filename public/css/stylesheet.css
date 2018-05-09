@@ -205,6 +205,12 @@ ul.top-nag a.active {
   float: right;
   padding: 0 1em 1.5em 1em;
 }
+.general-article{
+  max-height: 5.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
 .main .banner-right-text .general-news .edit-pics {
   margin-top: 3em;
 }

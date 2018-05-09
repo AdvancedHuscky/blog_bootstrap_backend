@@ -10,8 +10,10 @@ const path = require('path');
 function checkLogin(req,res,next){
     if(!req.session.user){
         console.log('err','未登陆，请先登陆')
-        return res.redirect('/detail'+id);
+        req.session.message = "未登陆，请先登录";
+        return res.redirect('/login');
     }
+    console.log(req.session);
     next();
 }
 function checkNoLogin(req,res,next){
@@ -19,6 +21,11 @@ function checkNoLogin(req,res,next){
         console.log('error','已登陆，无需再登陆');
         return res.redirect('back');
     }
+    next();
+}
+//清除code
+function clearCode(req,res,next){
+    req.session.code = null;
     next();
 }
 module.exports = function (app) {
@@ -44,9 +51,11 @@ module.exports = function (app) {
         res.render('page_login',{
             title:'登陆',
             user:req.session.user,
+            message:req.session.message
         })
+        console.log(req.session);
     })
-    app.post('/login',(req,res)=>{
+    app.post('/login',clearCode,(req,res)=>{
         let password = req.body.password;
         console.log(req.body);
         //检查用户是否存在
@@ -120,10 +129,10 @@ module.exports = function (app) {
         })
     })
     //文章发布
-    app.get('/post',(req,res,next)=>{
+    app.get('/post',checkLogin,(req,res,next)=>{
         res.render('page_post',{
             title:'文章发布',
-            user: true//req.session.user,
+            user: req.session.user,
         })
     });
     app.post('/post',(req,res,next)=>{
@@ -159,7 +168,7 @@ module.exports = function (app) {
                     throw new Error('请填写内容');
                 }
             }catch(e){
-                req.flash('error',e.message);
+                console.warn('error',e.message);
                 return res.redirect('back');
             }
             let post = new Post({
@@ -177,7 +186,7 @@ module.exports = function (app) {
                     return res.redirect('/post');
                 }
                 console.log('文章录入成功');
-                req.flash('success','文章录入成功');
+                console.info('success','文章录入成功');
                 res.redirect('/')
             })
         })

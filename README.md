@@ -8,3 +8,8 @@ express-session
 connect-mongo
 moment 时间控件
 formidable 表单控件
+
+#session code
+req.session.code = 7;
+req.session.message = "未登陆，请先登录";
+
