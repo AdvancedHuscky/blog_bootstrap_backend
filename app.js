@@ -8,7 +8,8 @@ let app = express();
 let swig = require('swig');
 //加载数据库模块
 const mongoose = require('mongoose');
-
+//加载post请求体解析工具
+const bodyParser = require('body-parser');
 
 //用户通过URL来访问web应用，web后端根据用户访问的url处理不同的业务逻辑
 
@@ -27,6 +28,9 @@ app.set('view engine','html');
 //在开发过程中，需要取消模板缓存
 swig.setDefaults({cache: false});
 
+//bodyparser设置
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.use('/admin',require('./routers/admin'));
 app.use("/api",require('./routers/api'));
 app.use('/',require('./routers/main'));
@@ -37,7 +41,7 @@ mongoose.connect('mongodb://localhost:27017/blogMiaov',function (err) {
     if(err){
         console.log('failed to connect db server');
     }else{
-        console.log('db connected');
+        console.log('db connected,app port 8081');
         //监听端口
         app.listen(8081)
     }
