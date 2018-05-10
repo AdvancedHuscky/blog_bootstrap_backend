@@ -5,6 +5,7 @@ const moment = require('moment'); //时间控件
 const session = require('express-session');
 const formidable = require('formidable'); //表单控件
 const path = require('path');
+const markdown = require('markdown').markdown;
 
 //检测是否登陆
 function checkLogin(req,res,next){
@@ -228,20 +229,24 @@ module.exports = function (app) {
             })
         })
     })
-    app.post('/edit/:title/:author',checkLogin,(req,res,next)=>{
+    app.post('/edit/:id',checkLogin,(req,res,next)=>{
         let post = {
-            id:req.body.id,
-            author:req.session.user.username,
+            id:req.params.id,
+            author:req.session.user,
             title:req.body.title,
             article:req.body.article
         }
-        console.log(post);
+        //console.log(post);
 
         //markdown转格式文章
-        post.article = markdown.toHTML(post.article);
+        //post.article = markdown.toHTML(post.article);
 
-        Post.update({"_id":post.id},{$set:{title:post.title,article:post.article}},(err)=>{
-            if(err) throw err;
+        Post.update({"_id":post.id},{$set:{"title":post.title,"article":post.article}},function(err){
+            if(err){
+                //console.log(err);
+                return
+            }
+            //console.log(1)
             res.redirect("/");
         })
     })
