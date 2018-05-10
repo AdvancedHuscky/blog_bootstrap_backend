@@ -190,5 +190,23 @@ module.exports = function (app) {
                 res.redirect('/')
             })
         })
+    });
+    app.get('/detail',(req,res)=>{
+        Post.find({},(err,data)=>{
+            console.log(err);
+            console.log(data);
+            if(err){
+                throw new Error(err);
+            };
+            res.render('detail',{
+                title:'详情页',
+                user:req.session.user,
+                //success:req.flash('success').toString(),
+                //error:req.flash('err').toString(),
+                posts:data,
+                time:moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+            })
+        })
+
     })
 }
