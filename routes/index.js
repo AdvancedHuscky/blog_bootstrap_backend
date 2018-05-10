@@ -209,4 +209,38 @@ module.exports = function (app) {
         })
 
     })
+    //编辑文件
+    app.get('/edit/:author/:title',checkLogin,(req,res)=>{
+        let id = req.query.id;
+        Post.findById(id,(err,data)=>{
+            if(err){
+                console.log('error',err);
+                return res.redirect('back');
+            }
+            res.render('edit',{
+                title:'页面编辑',
+                post:data,
+                user:req.session.user,
+                //success:
+                //error:
+            })
+        })
+    })
+    app.post('/edit/:author/:title',checkLogin,(req,res,next)=>{
+        let post = {
+            id:req.body.id,
+            author:req.session.user,
+            title:req.body.title,
+            article:req.body.article
+        }
+        console.log(post);
+
+        //markdown转格式文章
+        post.article = markdown.toHTML(post.article);
+
+        Post.update({"_id":post.id},{$set:{title:post.title,article:post.article}},(err)=>{
+            if(err) throw err;
+            res.redirect("/");
+        })
+    })
 }
