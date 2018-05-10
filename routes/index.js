@@ -13,7 +13,7 @@ function checkLogin(req,res,next){
         req.session.message = "未登陆，请先登录";
         return res.redirect('/login');
     }
-    console.log(req.session);
+    //console.log(req.session);
     next();
 }
 function checkNoLogin(req,res,next){
@@ -193,8 +193,8 @@ module.exports = function (app) {
     });
     app.get('/detail',(req,res)=>{
         Post.find({},(err,data)=>{
-            console.log(err);
-            console.log(data);
+            //console.log(err);
+            //console.log(data);
             if(err){
                 throw new Error(err);
             };
@@ -210,11 +210,13 @@ module.exports = function (app) {
 
     })
     //编辑文件
-    app.get('/edit/:author/:title',checkLogin,(req,res)=>{
-        let id = req.query.id;
+    app.get('/edit/:id',checkLogin,(req,res)=>{
+        let id = req.params.id;
+        //console.log(1);
         Post.findById(id,(err,data)=>{
+            console.log(data);
             if(err){
-                console.log('error',err);
+                console.log('error218',err);
                 return res.redirect('back');
             }
             res.render('edit',{
@@ -226,10 +228,10 @@ module.exports = function (app) {
             })
         })
     })
-    app.post('/edit/:author/:title',checkLogin,(req,res,next)=>{
+    app.post('/edit/:title/:author',checkLogin,(req,res,next)=>{
         let post = {
             id:req.body.id,
-            author:req.session.user,
+            author:req.session.user.username,
             title:req.body.title,
             article:req.body.article
         }

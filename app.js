@@ -42,7 +42,7 @@ app.use(session({
 
 //设置静态文件目录
 app.use(express.static(path.join(__dirname,'public')));
-
+app.use('/edit',express.static(path.join(__dirname,'public')))
 //设置路由
 routes(app);
 

@@ -1,8 +1,10 @@
 <%- include header %>
 <div style="text-align: center">
-    <% posts.forEach((post)=>{%>
+    <% posts.forEach((post)=>{
+        //console.log(post);
+    %>
     <p>
-        <span><a class="edit" href="/edit/<%= post.author %>/<%= post.title %>?id=<%=post._id%>">编辑</a></span>
+        <span><a class="edit" href="/edit/<%=post._id%>">编辑</a></span>
         <span><a class="edit" href="/delete?id=<%= post._id%>">删除</a></span>
     </p>
     <p><h2><a href="#"><%= post.title %></a></h2></p>
