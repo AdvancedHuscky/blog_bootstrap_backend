@@ -5,6 +5,7 @@
 .top-header {
   padding: 0em 2em;
   background: #5B83AD;
+  z-index:300;
 }
 ul.top-nag {
   float: left;
@@ -64,9 +65,10 @@ ul.top-nag a.active {
 .top-nav {
   float: left;
   background-color: #f26649;
+  margin-top: -4em;
   width: 15%;
   height: 100%;
-  padding: 3em 1em 1em 1em;
+  z-index: 100;
 }
 .top-nav .logo a {
   display: block;
@@ -141,7 +143,6 @@ ul.top-nag a.active {
 .main {
   float: right;
   width: 75%;
-  padding: 0;
 }
 .main .banner-section {
   float: left;
@@ -204,6 +205,12 @@ ul.top-nag a.active {
   float: right;
   padding: 0 1em 1.5em 1em;
 }
+.general-article{
+  max-height: 5.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
 .main .banner-right-text .general-news .edit-pics {
   margin-top: 3em;
 }
@@ -213,6 +220,8 @@ ul.top-nag a.active {
 /*--main content end--*/
 /*--footer start--*/
 .footer {
+  float: left;
+  margin-top: 5em;
   padding: 1em 0 !important;
 }
 .footer .footer-top {
@@ -249,7 +258,7 @@ ul.top-nag a.active {
 .copy {
   text-align: center;
   background: #5B83AD;
-  padding: .5em;
+  height: 3em;
 }
 /*--copy end--*/
 h3.tittle {
@@ -258,4 +267,198 @@ h3.tittle {
 }
 h3.tittle i {
   color: #f26649;
+}
+/*log in page*/
+.login {
+  padding: 5em 3em;
+}
+.login-grids {
+  padding: 3em 0 0;
+  margin-bottom:15.2em;
+}
+.log form input[type="password"] {
+  margin-right: 58px;
+}
+.log h5{
+  color: #F26649;
+  font-size: 16px;
+  text-transform: capitalize;
+  margin: 0 0 10px 0;
+  font-weight: 400;
+}
+.log form {
+  margin-top:32px;
+}
+.log form input[type="text"],.log form input[type="password"] {
+  width: 70%;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  color: #000;
+  margin-bottom:32px;
+}
+.log form input[type=submit] {
+  border: none;
+  color: #ffffff;
+  padding: 11px 53px;
+  font-size: 17px;
+  cursor: pointer;
+  margin: 0 0 32px 0;
+  background: #4A245E;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+.log form input[type=submit]:hover,.login-right a:hover {
+  background: #F26649;
+  transition: .5s all;
+  -webkit-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  -moz-transition: .5s all;
+}
+.log p a{
+  text-decoration:none;
+  color:#4a245e;
+}
+.log p a:hover{
+  color: #F26649;
+  transition: .5s all;
+  -webkit-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  -moz-transition: .5s all;
+}
+.login-right p {
+  color: #777;
+  margin: 22px 0 40px 0;
+  font-size: 0.9em;
+  line-height: 1.9em;
+}
+.log p{
+  color: #777;
+  margin: 22px 0;
+  font-size: 0.9em;
+  line-height: 1.8em;
+}
+.log p:nth-child(4) {
+  margin:0;
+}
+.log a{
+  text-decoration:none;
+  color: #F26649;
+}
+.log a:hover{
+  color:#4a245e;
+  transition: .5s all;
+  -webkit-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  -moz-transition: .5s all;
+}
+.login-right a{
+  text-decoration: none;
+  background: #4A245E;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 14px 34px;
+}
+/*-- register --*/
+.sign-up{
+  padding: 0em 0em;
+  margin: 0 auto;
+}
+.sign-up-form {
+  padding: 3em 5em;
+}
+.sign-up-form p{
+  color: #777;
+  font-size: 0.9em;
+  margin: .5em 0 3em;
+  line-height: 1.7em;
+}
+.sign-up1{
+  float:left;
+  width:27%;
+}
+.sign-up1 h4{
+  color: #3C4348;
+  margin: 1.4em 0 1em;
+  font-size: 16px;
+  font-weight: 400;
+}
+.sign-up2{
+  float:right;
+  width:70%;
+}
+.sign-up2 input[type="text"]{
+  outline:none;
+  border:1px solid #333;
+  background:none;
+  font-size:15px;
+  padding:10px 10px;
+  width:100%;
+  margin:1em 0;
+  color: #999;
+  font-family: 'Open Sans', sans-serif;
+}
+.sign-up2 input[type="password"]{
+  outline:none;
+  border:1px solid #333;
+  background:none;
+  font-size:15px;
+  padding:10px 10px;
+  width:100%;
+  margin:1em 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #999;
+}
+.sign-up h5{
+  margin: 0 0 2em;
+  color: #D52500;
+  font-size: 20px;
+}
+.sign-up h6{
+  margin: 2em 0 1em;
+  color: #D52500;
+  font-size: 20px;
+}
+.sign-up input[type="submit"]{
+  outline: none;
+  border: none;
+  background: #4A245E;
+  color: #fff;
+  font-size: 20px;
+  width: 17%;
+  font-weight: 600;
+  margin-left: 18em;
+  margin-top: 3em;
+  padding: 13px 0;
+  transition: .5s all;
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  text-transform: uppercase;
+  -webkit-appearance: none;
+}
+.sign-up input[type="submit"]:hover{
+  background: #F26649;
+}
+h3.tittle.reg {
+  font-size: 1.6em;
+}
+/*signin page*/
+.form-horizontal{
+  margin: 20em 10em;
+}
+/*post page*/
+.post-form{
+  margin:20em 10em;
+}
+/*edit page*/
+.edit-form{
+  margin: 8em 5em;
 }
