@@ -229,7 +229,7 @@ module.exports = function (app) {
             })
         })
     })
-    app.post('/edit/:id',checkLogin,(req,res,next)=>{
+    app.put('/edit/:id',checkLogin,(req,res,next)=>{
         let post = {
             id:req.params.id,
             author:req.session.user,
@@ -249,5 +249,19 @@ module.exports = function (app) {
             //console.log(1)
             res.redirect("/");
         })
+    })
+    //删除功能
+    app.get ('/delete',checkLogin,(req,res)=>{
+        let id = req.query.id;
+        if(id && id!=""){
+            Post.findByIdAndRemove(id,(err)=>{
+                if(err){
+                    console.log(err,"删除失败！");
+                    return req.redirect('/')
+                }
+                console.log('删除成功');
+                res.redirect('/');
+            })
+        }
     })
 }

@@ -45,6 +45,15 @@ label{
 }
 /*--responsive--*/
 @media(max-width: 2000px){
+    ul.top-nag a {
+        display: inline-block;
+        color: #fff;
+        font-size: 1.6em;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 20px;
+        background: #5B83AD;
+      }
     .top-nav{
         position: fixed !important;
         left: 0;
@@ -54,6 +63,16 @@ label{
         height:100%;
         padding:8em 1em 1em 1em;
     }
+    .b-search input[type="text"] {
+        width: 85%;
+        height: 3.2em;
+        outline: none;
+        border: none;
+        padding: 0 0.6em;
+        font-size: 0.9em;
+        color: #fff;
+        background: #5078a2;
+      }
     .main {
         position: relative;
         float: right;
@@ -92,6 +111,25 @@ label{
     }
 }
 @media(max-width: 1600px){
+    ul.top-nag a {
+        display: inline-block;
+        color: #fff;
+        font-size: 1.6em;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 20px;
+        background: #5B83AD;
+      }
+      .b-search input[type="text"] {
+        width: 85%;
+        height: 3.2em;
+        outline: none;
+        border: none;
+        padding: 0 0.6em;
+        font-size: 0.9em;
+        color: #fff;
+        background: #5078a2;
+      }
     .top-nav{
         position: fixed !important;
         left: 0;
@@ -140,6 +178,15 @@ label{
     }
 }
 @media(max-width: 1200px){
+    ul.top-nag a {
+        display: inline-block;
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 20px;
+        background: #5B83AD;
+      }
     .top-nav{
         float: left;
         background-color: #f26649;
@@ -176,6 +223,15 @@ label{
     }
 }
 @media (max-width:991px) {
+    ul.top-nag a {
+        display: inline-block;
+        color: #fff;
+        font-size: 1em;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 20px;
+        background: #5B83AD;
+      }
     .search-box {
         float: right;
         width: 31%;
@@ -216,7 +272,7 @@ label{
 
     ul.top-nag li a {
         font-size: 0.9em;
-        padding: 20px 13px;
+        padding: 1em;
     }
 
     .top-text.two {
@@ -244,6 +300,18 @@ label{
     }
 }
 @media(max-width:768px){
+    ul.top-nag a {
+        display: inline-block;
+        color: #fff;
+        font-size: .5em;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 20px;
+        background: #5B83AD;
+      }
+    .logo{
+        margin-top: 2em;
+    }
     .top-nag a{
         font-weight: 500 !important;
         padding:.5em !important;
@@ -257,10 +325,20 @@ label{
     .top-nav{
         width:100%;
     }
+    .b-search input[type="text"] {
+        width: 85%;
+        height: 2.2em;
+        outline: none;
+        border: none;
+        padding: 0 0.6em;
+        font-size: 0.9em;
+        color: #fff;
+        background: #5078a2;
+      }
     .banner-section{
         width: 100%;
         float: left;
-        padding:0 1em 1.5em 1em;
+        padding:.5em 1em 1.5em 1em !important;
         border-right: none;
     }
     .banner-right-text{
@@ -317,8 +395,8 @@ label{
     }
     .nav-list-button{
         display:inline;
-        margin: 1em;
-        font-size:2em;
+        margin: 2em;
+        font-size:1.5em;
     }
     ul.top-nag li a {
         font-size: 0.6em !important;
@@ -348,5 +426,10 @@ label{
     }
     .copy{
         margin-left: 0;
+    }
+}
+@media(max-width:350px){
+    .top-nag a{
+        padding:.3em !important;
     }
 }
