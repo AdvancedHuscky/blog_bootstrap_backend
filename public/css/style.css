@@ -109,6 +109,9 @@ label{
     .top-menu .cl-effect-16,.top-menu .side-icons {
         display: block;
     }
+    .main .banner-section .top-news .top-text p .glyphicon {
+        margin: 0 .2em 0 2em !important;
+    }
 }
 @media(max-width: 1600px){
     ul.top-nag a {
@@ -176,8 +179,14 @@ label{
     .top-menu .cl-effect-16,.top-menu .side-icons {
         display: block;
     }
+    .main .banner-section .top-news .top-text p .glyphicon {
+        margin: 0 .2em 0 2em !important;
+    }
 }
 @media(max-width: 1200px){
+    .search-box{
+        display: none;
+    }
     ul.top-nag a {
         display: inline-block;
         color: #fff;
@@ -198,28 +207,35 @@ label{
         float: right;
         width: 75%;
         padding: 0;
-        margin-left: 25%;
+        margin-left: 28%;
     }
     .banner-section {
-        width: 75%;
+        width: 100%;
         float: left;
         padding: 2em 1em 1.5em 1em;
         border-right: none;
     }
     .banner-right-text {
         float: right;
-        width: 25%;
+        width: 100%;
         padding: 1em 1em 1.5em 1em;
     }
     .top-nav .top-menu ul.side-icons{
         margin-top: 4em;
-        margin-left: 2em;
+        margin-left: 4em;
     }
     .top-menu .nav-list-button{
         display: none;
     }
     .top-menu .cl-effect-16,.top-menu .side-icons {
         display: block;
+    }
+    .main .banner-section .top-news .top-text p .glyphicon {
+        margin: 0 .2em 0 2em !important;
+    }
+    .edit-pics .editor-pics{
+        /*float: left;*/
+        width: 50%;
     }
 }
 @media (max-width:991px) {
@@ -298,12 +314,21 @@ label{
     .top-menu .cl-effect-16,.top-menu .side-icons {
         display: block;
     }
+    .main .banner-section .top-news .top-text p .glyphicon {
+        margin: 0 .2em 0 2em !important;
+    }
+    .edit-pics .editor-pics{
+        /*float: left;*/
+        width: 100%;
+    }
 }
-@media(max-width:768px){
+@media(max-width:767px){
+    h3{
+        font-size:3em !important;
+    }
     ul.top-nag a {
         display: inline-block;
         color: #fff;
-        font-size: .5em;
         font-weight: 600;
         text-transform: uppercase;
         padding: 20px;
@@ -318,11 +343,13 @@ label{
         font-size: .8em !important;
     }
     .top-nav {
+        box-sizing: border-box;
         float: left;
-        width: 25%;
-        padding: .5em;
+        padding: 0em !important;
+        width:96%;
     }
-    .top-nav{
+    .top-nav h1{
+        margin-top:2em;
         width:100%;
     }
     .b-search input[type="text"] {
@@ -345,15 +372,19 @@ label{
         width:100%;
         float:left;
     }
+    .edit-pics .editor-pics{
+        /*float: left;*/
+        width: 100%;
+    }
     .editor-pics{
-        float: left;
-        width: 50%;
+        width: 100%;
     }
     .main .banner-section .carousel-indicators-position {
         bottom: 100% !important;
         left: 80% !important;
     }
     .main{
+        margin-top: 4em;
         width: 100%;
     }
     .media{
@@ -393,13 +424,19 @@ label{
     .top-nav .top-menu ul.side-icons{
         margin-left: 2.5em;
     }
+    .b-bottom h5 a{
+        font-size: 2em;
+    }
+    .top-text h5 a{
+        font-size: 2em;
+    }
     .nav-list-button{
         display:inline;
         margin: 2em;
         font-size:1.5em;
     }
     ul.top-nag li a {
-        font-size: 0.6em !important;
+        font-size: .8em !important;
         padding: 1em -5em !important;
     }
     .top-menu{
@@ -427,9 +464,22 @@ label{
     .copy{
         margin-left: 0;
     }
-}
-@media(max-width:350px){
-    .top-nag a{
-        padding:.3em !important;
+    .top-text{
+        width: 100%;
+    }
+    .top-text a{
+        width:2em !important;
+    }
+    .top-text img{
+        display: none;
+    }
+    .main .banner-section .top-news .two{
+        padding-left: 0 !important;
+    }
+    .main .banner-section .top-news .top-text p .glyphicon {
+        margin: 0 .1em 0 0 !important;
+    }
+    .general-text img{
+        width: 100%;
     }
 }

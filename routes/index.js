@@ -229,7 +229,7 @@ module.exports = function (app) {
             })
         })
     })
-    app.put('/edit/:id',checkLogin,(req,res,next)=>{
+    app.post('/edit/:id',checkLogin,(req,res,next)=>{
         let post = {
             id:req.params.id,
             author:req.session.user,
